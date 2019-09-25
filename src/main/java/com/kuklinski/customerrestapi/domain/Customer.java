@@ -6,7 +6,7 @@ public class Customer {
 
     private String name;
 
-    private Adress adress;
+    private Address adress;
 
     public Customer() {
     }
@@ -27,11 +27,11 @@ public class Customer {
         this.name = name;
     }
 
-    public Adress getAdress() {
+    public Address getAdress() {
         return adress;
     }
 
-    public void setAdress(Adress adress) {
+    public void setAdress(Address adress) {
         this.adress = adress;
     }
 }
