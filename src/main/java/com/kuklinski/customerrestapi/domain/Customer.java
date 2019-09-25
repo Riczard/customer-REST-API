@@ -2,20 +2,20 @@ package com.kuklinski.customerrestapi.domain;
 
 public class Customer {
 
-    private long id;
+    private String id;
 
     private String name;
 
-    private Address adress;
+    private Address address;
 
     public Customer() {
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -27,11 +27,11 @@ public class Customer {
         this.name = name;
     }
 
-    public Address getAdress() {
-        return adress;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setAdress(Address adress) {
-        this.adress = adress;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }
