@@ -14,7 +14,11 @@ public class CustomerServiceImpl implements CustomerServiceInterface {
     }
 
     public Customer getCustomerById(long id) {
-        return customerRepository.getCustomerById(id);
+        Customer customer= customerRepository.getCustomerById(id);
+        if(customer == null) {
+            throw new IllegalArgumentException("Any customer with this id");
+        }
+        return customer;
     }
 
     public Customer addCustomer(Customer customer) {
