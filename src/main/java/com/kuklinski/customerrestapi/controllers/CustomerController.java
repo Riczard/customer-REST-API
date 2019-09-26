@@ -2,7 +2,7 @@ package com.kuklinski.customerrestapi.controllers;
 
 import com.kuklinski.customerrestapi.domain.Customer;
 import com.kuklinski.customerrestapi.domain.CustomerDTO;
-import com.kuklinski.customerrestapi.services.CustomerService;
+import com.kuklinski.customerrestapi.services.CustomerServiceImpl;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,11 +13,11 @@ import javax.validation.Valid;
 @RestController
 public class CustomerController {
 
-    private final CustomerService customerService;
+    private final CustomerServiceImpl customerService;
 
     private final ModelMapper modelMapper;
 
-    public CustomerController(CustomerService customerService, ModelMapper modelMapper) {
+    public CustomerController(CustomerServiceImpl customerService, ModelMapper modelMapper) {
         this.customerService = customerService;
         this.modelMapper = modelMapper;
     }

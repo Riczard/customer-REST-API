@@ -1,15 +1,15 @@
 package com.kuklinski.customerrestapi.services;
 
 import com.kuklinski.customerrestapi.domain.Customer;
-import com.kuklinski.customerrestapi.repositores.CustomerRepository;
+import com.kuklinski.customerrestapi.repositores.CustomerRepositoryImpl;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CustomerService implements CustomerServiceInterface {
+public class CustomerServiceImpl implements CustomerServiceInterface {
 
-    private final CustomerRepository customerRepository;
+    private final CustomerRepositoryImpl customerRepository;
 
-    public CustomerService(CustomerRepository customerRepository) {
+    public CustomerServiceImpl(CustomerRepositoryImpl customerRepository) {
         this.customerRepository = customerRepository;
     }
 
