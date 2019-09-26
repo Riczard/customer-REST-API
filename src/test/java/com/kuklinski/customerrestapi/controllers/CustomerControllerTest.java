@@ -50,7 +50,7 @@ public class CustomerControllerTest {
 
     @Test
     public void testGetCustomerByIdWhenCustomerNotExistExpectedStatusNotFound() throws Exception {
-        MockHttpServletRequestBuilder builder = get("/customer/0");
+        MockHttpServletRequestBuilder builder = get("/customer/10");
         ResultActions resultActions = mockMvc.perform(builder);
         resultActions.andExpect(status().isNotFound());
     }
