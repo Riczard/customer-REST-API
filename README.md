@@ -6,7 +6,6 @@ simple service with REST API
 localhost:8080/customer
 ```json
 {
-      "id": "1",
       "name": "Abraham Lincoln",
       "address": {
     	"city": "Washingtonm",
@@ -17,7 +16,6 @@ localhost:8080/customer
 ```
 ```json
 {     
-      "id": "2",
       "name": "John Wick",
       "address": {
     	"city": "Alabama",
@@ -28,4 +26,4 @@ localhost:8080/customer
 ```
 ## Example Get 
 
-localhost:8080/customer/1
+localhost:8080/customer/0
