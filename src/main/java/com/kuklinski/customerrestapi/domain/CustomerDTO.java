@@ -1,9 +1,12 @@
 package com.kuklinski.customerrestapi.domain;
 
+import javax.validation.constraints.NotNull;
+
 public class CustomerDTO {
 
     private long id;
 
+    @NotNull
     private String name;
 
     private AddressDTO address;
