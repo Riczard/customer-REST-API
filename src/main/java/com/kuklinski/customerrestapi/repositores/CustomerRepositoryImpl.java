@@ -18,7 +18,6 @@ public class CustomerRepositoryImpl implements CustomerRepositoryInterface {
     }
 
     public Customer getCustomerById(long id) {
-        System.out.println(id);
         return customersMap.get(String.valueOf(id));
     }
 
