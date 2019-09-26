@@ -8,7 +8,7 @@ localhost:8080/customer
 {
       "name": "Abraham Lincoln",
       "address": {
-    	"city": "Washingtonm",
+    	"city": "Washington",
     	"street": "White House",
     	"zipCode": "4N42l"
     }
