@@ -19,7 +19,7 @@ public class CustomerController {
 
     @GetMapping("/customer/{id}")
     public ResponseEntity<Customer> getCustomer(@PathVariable String id) {
-        return new ResponseEntity<>(customerService.getCustomerById(id), HttpStatus.CREATED);
+        return new ResponseEntity<>(customerService.getCustomerById(id), HttpStatus.OK);
     }
 
     @PostMapping("/customer")
