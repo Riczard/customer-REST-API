@@ -7,24 +7,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Repository
-public class CustomerRepository {
+public class CustomerRepository implements CustomerRepositoryInterface {
 
-    private Map<String ,Customer> customerMap;
+    private Map<String, Customer> customersMap;
 
     public CustomerRepository() {
-        this.customerMap = new HashMap<>();
+        this.customersMap = new HashMap<>();
     }
 
     public Customer getCustomerById(String id) {
-        return customerMap.get(id);
+        return customersMap.get(id);
     }
 
     public Customer addCustomer(Customer customer) {
-        customerMap.put(customer.getId(), customer);
+        customersMap.put(customer.getId(), customer);
         return customer;
     }
 
-    public Map<String, Customer> getCustomerMap() {
-        return customerMap;
+    public Map<String, Customer> getCustomersMap() {
+        return customersMap;
     }
 }

@@ -5,7 +5,7 @@ import com.kuklinski.customerrestapi.repositores.CustomerRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CustomerService {
+public class CustomerService implements CustomerServiceInterface {
 
     private final CustomerRepository customerRepository;
 
