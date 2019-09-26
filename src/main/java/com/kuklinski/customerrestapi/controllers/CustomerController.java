@@ -23,7 +23,7 @@ public class CustomerController {
     }
 
     @GetMapping("/customer/{id}")
-    public ResponseEntity<CustomerDTO> getCustomer(@PathVariable String id) {
+    public ResponseEntity<CustomerDTO> getCustomer(@PathVariable long id) {
         CustomerDTO customerDTO = convertCustomerToDTO(customerService.getCustomerById(id));
         return new ResponseEntity<>(customerDTO, HttpStatus.OK);
     }

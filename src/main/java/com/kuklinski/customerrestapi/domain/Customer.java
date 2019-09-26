@@ -2,7 +2,7 @@ package com.kuklinski.customerrestapi.domain;
 
 public class Customer {
 
-    private String id;
+    private long id;
 
     private String name;
 
@@ -11,11 +11,11 @@ public class Customer {
     public Customer() {
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 

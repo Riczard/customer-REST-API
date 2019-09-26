@@ -13,7 +13,7 @@ public class CustomerServiceImpl implements CustomerServiceInterface {
         this.customerRepository = customerRepository;
     }
 
-    public Customer getCustomerById(String id) {
+    public Customer getCustomerById(long id) {
         return customerRepository.getCustomerById(id);
     }
 

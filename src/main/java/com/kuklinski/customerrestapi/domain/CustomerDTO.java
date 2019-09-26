@@ -2,17 +2,17 @@ package com.kuklinski.customerrestapi.domain;
 
 public class CustomerDTO {
 
-    private String id;
+    private long id;
 
     private String name;
 
     private AddressDTO address;
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 

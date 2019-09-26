@@ -4,6 +4,6 @@ import com.kuklinski.customerrestapi.domain.Customer;
 
 public interface CustomerRepositoryInterface {
 
-    Customer getCustomerById(String id);
+    Customer getCustomerById(long id);
     Customer addCustomer(Customer customer);
 }

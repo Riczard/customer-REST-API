@@ -9,22 +9,22 @@ import java.util.Map;
 @Repository
 public class CustomerRepositoryImpl implements CustomerRepositoryInterface {
 
+    private static long id = 0;
+
     private Map<String, Customer> customersMap;
 
     public CustomerRepositoryImpl() {
         this.customersMap = new HashMap<>();
     }
 
-    public Customer getCustomerById(String id) {
-        return customersMap.get(id);
+    public Customer getCustomerById(long id) {
+        System.out.println(id);
+        return customersMap.get(String.valueOf(id));
     }
 
     public Customer addCustomer(Customer customer) {
-        customersMap.put(customer.getId(), customer);
+        customersMap.put(String.valueOf(id++), customer);
         return customer;
     }
 
-    public Map<String, Customer> getCustomersMap() {
-        return customersMap;
-    }
 }
