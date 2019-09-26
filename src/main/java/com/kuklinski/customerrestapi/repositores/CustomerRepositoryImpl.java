@@ -22,6 +22,7 @@ public class CustomerRepositoryImpl implements CustomerRepositoryInterface {
     }
 
     public Customer addCustomer(Customer customer) {
+        customer.setId(id);
         customersMap.put(String.valueOf(id++), customer);
         return customer;
     }
