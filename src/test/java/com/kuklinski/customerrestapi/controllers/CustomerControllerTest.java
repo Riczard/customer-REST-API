@@ -48,4 +48,10 @@ public class CustomerControllerTest {
         resultActions.andExpect(status().isOk());
     }
 
+    @Test
+    public void testGetCustomerByIdWhenCustomerNotExistExpectedStatusNotFound() throws Exception {
+        MockHttpServletRequestBuilder builder = get("/customer/0");
+        ResultActions resultActions = mockMvc.perform(builder);
+        resultActions.andExpect(status().isNotFound());
+    }
 }
