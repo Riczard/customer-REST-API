@@ -1,42 +1,39 @@
 package com.kuklinski.customerrestapi.services;
 
 import com.kuklinski.customerrestapi.domain.Customer;
-import com.kuklinski.customerrestapi.domain.CustomerDTO;
 import com.kuklinski.customerrestapi.repositores.CustomerRepositoryImpl;
 import org.junit.Test;
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.TestInstance;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.junit4.SpringRunner;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
-@RunWith(MockitoJUnitRunner.class)
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class CustomerServiceImplTest {
 
-
+    @Autowired
     private CustomerServiceImpl customerService;
 
-    @Mock
+    @MockBean
     private CustomerRepositoryImpl customerRepository;
 
-    @Mock
-    private Customer customer;
-
-    @BeforeAll
-    public void initialize() {
-        MockitoAnnotations.initMocks(this);
-        customerService = new CustomerServiceImpl(customerRepository);
+    @Test
+    public void shouldGetCustomerByIdIfExist() {
+        Customer customer = new Customer();
+        when(customerRepository.getCustomerById(0)).thenReturn(customer);
+        assertNotNull(customerService.getCustomerById(0));
     }
 
     @Test
-    public void shouldGetCustomerByIdWhenExist() {
-        when(customerRepository.getCustomerById(0)).thenReturn(customer);
-
-        assertNotNull(customerService.getCustomerById(0));
+    public void shouldGetCustomerByIdThrowExceptionWhenIdDontExist() {
+        assertThrows(IllegalArgumentException.class,
+                () -> customerService.getCustomerById(10)
+        );
     }
 }
