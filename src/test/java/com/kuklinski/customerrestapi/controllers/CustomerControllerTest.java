@@ -1,5 +1,6 @@
 package com.kuklinski.customerrestapi.controllers;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kuklinski.customerrestapi.domain.Customer;
 import com.kuklinski.customerrestapi.repositores.CustomerRepositoryImpl;
 import org.junit.After;
@@ -8,6 +9,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
@@ -15,6 +17,7 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import org.springframework.web.context.WebApplicationContext;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
@@ -26,6 +29,10 @@ public class CustomerControllerTest {
 
     @Autowired
     private WebApplicationContext webApplicationContext;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
 
     @Autowired
     private CustomerRepositoryImpl customerRepository;
@@ -53,5 +60,16 @@ public class CustomerControllerTest {
         MockHttpServletRequestBuilder builder = get("/customer/10");
         ResultActions resultActions = mockMvc.perform(builder);
         resultActions.andExpect(status().isNotFound());
+    }
+
+    @Test
+    public void testAddCustomerExpectedStatusCreated() throws Exception {
+        Customer customer = new Customer();
+        customer.setName("John");
+        MockHttpServletRequestBuilder builder = post("/customer")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(customer));
+        ResultActions resultActions = mockMvc.perform(builder);
+        resultActions.andExpect(status().isCreated());
     }
 }
