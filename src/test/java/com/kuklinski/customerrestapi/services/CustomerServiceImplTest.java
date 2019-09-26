@@ -1,6 +1,7 @@
 package com.kuklinski.customerrestapi.services;
 
 import com.kuklinski.customerrestapi.domain.Customer;
+import com.kuklinski.customerrestapi.exceptions.ResourceNotFoundException;
 import com.kuklinski.customerrestapi.repositores.CustomerRepositoryImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,8 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
@@ -25,14 +25,13 @@ public class CustomerServiceImplTest {
 
     @Test
     public void shouldGetCustomerByIdIfExist() {
-        Customer customer = new Customer();
-        when(customerRepository.getCustomerById(0)).thenReturn(customer);
+        when(customerRepository.getCustomerById(0)).thenReturn(new Customer());
         assertNotNull(customerService.getCustomerById(0));
     }
 
     @Test
     public void shouldGetCustomerByIdThrowExceptionWhenIdDontExist() {
-        assertThrows(IllegalArgumentException.class,
+        assertThrows(ResourceNotFoundException.class,
                 () -> customerService.getCustomerById(10)
         );
     }
