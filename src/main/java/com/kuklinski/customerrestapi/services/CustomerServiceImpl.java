@@ -1,6 +1,7 @@
 package com.kuklinski.customerrestapi.services;
 
 import com.kuklinski.customerrestapi.domain.Customer;
+import com.kuklinski.customerrestapi.exceptions.ResourceNotFoundException;
 import com.kuklinski.customerrestapi.repositores.CustomerRepositoryImpl;
 import org.springframework.stereotype.Service;
 
@@ -15,10 +16,10 @@ public class CustomerServiceImpl implements CustomerServiceInterface {
 
     public Customer getCustomerById(long id) {
         Customer customer= customerRepository.getCustomerById(id);
-        if(customer == null) {
-            throw new IllegalArgumentException("Any customer with this id");
+        if(customer != null) {
+            return customer;
         }
-        return customer;
+        throw new ResourceNotFoundException(String.format("Customer with ID = %s does not exist!", id));
     }
 
     public Customer addCustomer(Customer customer) {
