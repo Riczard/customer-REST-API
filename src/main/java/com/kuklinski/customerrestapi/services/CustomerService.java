@@ -2,15 +2,15 @@ package com.kuklinski.customerrestapi.services;
 
 import com.kuklinski.customerrestapi.domain.Customer;
 import com.kuklinski.customerrestapi.exceptions.ResourceNotFoundException;
-import com.kuklinski.customerrestapi.repositores.CustomerRepositoryImpl;
+import com.kuklinski.customerrestapi.repositores.CustomerRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CustomerServiceImpl implements CustomerServiceInterface {
+public class CustomerService implements CustomerServiceInterface {
 
-    private final CustomerRepositoryImpl customerRepository;
+    private final CustomerRepository customerRepository;
 
-    public CustomerServiceImpl(CustomerRepositoryImpl customerRepository) {
+    public CustomerService(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
 

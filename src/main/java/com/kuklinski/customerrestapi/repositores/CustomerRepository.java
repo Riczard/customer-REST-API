@@ -7,13 +7,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Repository
-public class CustomerRepositoryImpl implements CustomerRepositoryInterface {
+public class CustomerRepository implements CustomerRepositoryInterface {
 
     private static long id = 0;
 
     private Map<String, Customer> customersMap;
 
-    public CustomerRepositoryImpl() {
+    public CustomerRepository() {
         this.customersMap = new HashMap<>();
     }
 

@@ -2,7 +2,7 @@ package com.kuklinski.customerrestapi.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kuklinski.customerrestapi.domain.Customer;
-import com.kuklinski.customerrestapi.repositores.CustomerRepositoryImpl;
+import com.kuklinski.customerrestapi.repositores.CustomerRepository;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -35,7 +35,7 @@ public class CustomerControllerTest {
 
 
     @Autowired
-    private CustomerRepositoryImpl customerRepository;
+    private CustomerRepository customerRepository;
 
     @Before
     public void before() {

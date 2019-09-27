@@ -2,7 +2,7 @@ package com.kuklinski.customerrestapi.services;
 
 import com.kuklinski.customerrestapi.domain.Customer;
 import com.kuklinski.customerrestapi.exceptions.ResourceNotFoundException;
-import com.kuklinski.customerrestapi.repositores.CustomerRepositoryImpl;
+import com.kuklinski.customerrestapi.repositores.CustomerRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +15,13 @@ import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CustomerServiceImplTest {
+public class CustomerServiceTest {
 
     @Autowired
-    private CustomerServiceImpl customerService;
+    private CustomerService customerService;
 
     @MockBean
-    private CustomerRepositoryImpl customerRepository;
+    private CustomerRepository customerRepository;
 
     @Test
     public void shouldGetCustomerByIdIfExist() {
